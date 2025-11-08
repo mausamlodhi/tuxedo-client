@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600;700&family=Marcellus&display=swap");
+@import "tailwindcss";
+
+/* Event Page Select Styles */
+.event-page-select [class$="-indicatorContainer"],
+.event-page-select [class$="-indicatorSeparator"] {
+  display: none !important;
+}
+
+.event-page-select [class$="-control"] {
+  min-height: 40px !important;
+  border-radius: 6px !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: none !important;
+  width: 200px !important;
+}
+
+.event-page-select [class$="-valueContainer"] {
+  padding: 4px 8px !important;
+}
+
+.event-page-select [class$="-singleValue"] {
+  color: #000000 !important;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --font-advent: "Advent Pro", sans-serif;
+  --font-marcellus: "Marcellus", serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* globals.css */
+
+body {
+  /* font-family:'Marcellus','Advent Pro', serif; */
+  font-family: var(--font-marcellus);
+  /* default body font */
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1;
+  /* 100% */
+  letter-spacing: 0;
+}
+
+/* ---------------------------
+   Scrollbar Styling
+---------------------------- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* For Chrome, Safari, Opera */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.6) transparent;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.6);
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:active {
+  background-color: rgba(100, 100, 100, 1);
+}
+
+/* Hide arrows for number inputs */
+.no-arrows::-webkit-inner-spin-button,
+.no-arrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-arrows {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+.font-advent {
+  font-family: var(--font-advent);
+}
+
+/* Hide default header (logo + load/save/download buttons) */
+.tui-image-editor-header-logo,
+.tui-image-editor-header-buttons {
+  display: none !important;
+}
+
+/* -------------------------------------------------------------- */
+
+.builder-wrapper {
+  width: 300px;
+  margin-top: 100px;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* ensures proper scaling */
+  height: auto;
+}
+
+/* Layering order (important!) */
+.placeholder {
+  z-index: 0;
+}
+
+.shirt-tail {
+  z-index: 1;
+}
+
+.hanger {
+  margin-left: -6%;
+}
+
+.Pant-full {
+  z-index: 2;
+  /* margin-top: -8%; */
+  margin-left: -7%;
+}
+
+.Socks-full {
+  z-index: 2;
+}
+
+.Shoe-full {
+  z-index: 3;
+  top: 3%;
+  left: 5%
+}
+
+.Shirt-full {
+  z-index: 4;
+  height: 300px;
+  width: 253px;
+  margin-left: 20px;
+}
+
+.shirt-collar {
+  z-index: 9;
+}
+
+.Vest-full {
+  z-index: 6;
+}
+
+.Vest-front {
+  z-index: 7;
+}
+
+.bow_tie {
+  width: 90%;
+  height: 83%;
+  left: 24px;
+  top: -2px;
+}
+
+.neck_tie {
+  z-index: 8;
+  height: 35%;
+  width: 40%;
+  left: 31%;
+  top: 27px;
+}
+
+.Suspenders-full {
+  top: 3%;
+  left: 5%
+}
+
+.StudsCufflinks-full {
+  left: 10%;
+  top: 3%
+}
+
+.Coat-full {
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+}
+
+.Coat-front {
+  z-index: 9;
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+}
+
+.PocketSquare-full {
+  z-index: 11;
+  margin-left: 1%;
+}
+
+.cufflinks {
+  z-index: 12;
+}
+
+.lapel-pin {
+  z-index: 13;
+}
+
+.colorpicker-popover {
+  z-index: 9999;
+}
+
+.controls {
+  display: flex;
+  border: 1px solid #ccc;
+  border-top: 0;
+  padding: 10px;
+}
+
+.controls-right {
+  margin-left: auto;
+}
+
+.state {
+  margin: 10px 0;
+  font-family: monospace;
+}
+
+.state-title {
+  color: #999;
+  text-transform: uppercase;
+}
+
+/* Remove editor border */
+.ql-container.ql-snow,
+.ql-toolbar.ql-snow {
+  border-color: #171717;
+}
+
+.pant-preview {
+  margin-left: 40%;
+  height: 85%;
+}
+
+.neck_tie-preview {
+  /* margin-top: 10%; */
+  height: 70%;
+}
+
+.coat-preview {
+  height: 85%;
+}
+
+.shirt-preview {
+  height: 85%;
+}
+
+.vest-preview {
+  height: 95%;
+}
+
+.cufflink-preview {
+  margin-top: -170%;
+  margin-right: 60%;
+}
+
+.suspenders-preview {
+  margin-top: -170%;
+}
+
+.shoes-preview {
+  margin-top: -170%;
+  margin-left: 60%;
+  height: 140%;
+}
+
+.socks-preview {
+  margin-left: 50%
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.scrollbar-light::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 10px;
+}
+
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* Global thin scrollbar for all scrollable elements */
+*::-webkit-scrollbar {
+  width: 2px;
+  /* thin scrollbar width */
+  height: 2px;
+  /* for horizontal scrollbars */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  /* track background */
+  border-radius: 9999px;
+  /* fully rounded */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* scrollbar color */
+  border-radius: 9999px;
+  /* rounded thumb */
+  transition: background 0.3s;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* slightly darker on hover */
+}
+
+.list-Shirt-full {
+  width: 90%;
+  left: 1px
+}
+
+.list-Coat-front {
+  width: 100%;
+  left: -6px
+}
+
+.list-Coat-full {
+  width: 100%;
+  left: -6px
+}
+
+.list-Vest-front {
+  width: 100%;
+  left: -3%
+}
+
+.list-Vest-full {
+  width: 100%;
+  left: -3%
+}
+
+.list-bow_tie {
+  left: -2px;
+  top: 4px;
+}
+
+.list-neck_tie {
+  height: 165px;
+  top: 14px;
+  left: -2px;
+}
+
+/* CSS FOR EVENT DETAILS PAGE OUTFIT */
+
+.list-Shoe-fulloutfit-list,
+.list-StudsCufflinks-fulloutfit-list,
+.list-Suspenders-fulloutfit-list {
+  top: 18px;
+}
+
+.list-Shirt-fulloutfit-list {
+  width: 114px;
+  height: 98px;
+}
+
+.list-bow_tieoutfit-list{
+  left:4px;
+}
+
+.list-neck_tieoutfit-list {
+  height: 93px;
+  top: 9px;
+  width: 124px;
+  left: 1px;
+}
